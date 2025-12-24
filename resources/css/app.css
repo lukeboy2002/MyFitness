@@ -6,9 +6,61 @@
 @source '../../storage/framework/views/*.php';
 
 @theme {
-  --font-sans:
-    Figtree, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    --font-sans: Figtree, ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-theme: 'Anton SC';
+
+    --color-body: var(--body);
+    --color-default: var(--default);
+    --color-default-muted: var(--default-muted);
+    --color-accent: var(--accent);
+
+    --color-stairmaster: var(--stairmaster);
+    --color-rowing: var(--rowing);
+    --color-walking: var(--walking);
+    --color-crosstrainer: var(--crosstrainer);
+    --color-cycling: var(--cycling);
+    /*--color-background: var(--background);*/
+    /*--color-background-hover: var(--background-hover);*/
+    /*--color-primary: var(--primary);*/
+    /*--color-primary-invert: var(--primary-invert);*/
+    /*--color-primary-muted: var(--primary-muted);*/
+    /*--color-secondary: var(--secondary);*/
+    --color-error: var(--error);
+    /*--color-edit: var(--edit);*/
+    /*--color-success: var(--success);*/
+    --color-input: var(--input);
+    --color-input-border: var(--input-border);
+}
+
+:root {
+    --body: hsl(210 20% 98%); /* gray-50 */
+    --default: hsl(0 0% 3.9%); /* neutral-950 */
+    --default-muted: hsl(215 13.8% 34.1%); /* gray-600 */
+    --accent: hsl(24.6 95% 53.1%); /* orange-500 */
+    --error: hsl(0 84.2% 60.2%); /* red-500 */
+
+    --input: hsl(220 14.3% 95.9%); /* gray-100 */
+    --input-border: hsl(217.9 10.6% 64.9%); /* gray-400 */
+
+    --stairmaster: hsl(142.4 71.8% 29.2%); /* green-700 */
+    --rowing: hsl(26 90.5% 37.1%); /* amber-700 */
+    --walking: hsl(224.3 76.3% 48%); /* blue-700 */
+    --crosstrainer: hsl(345.3 82.7% 40.8%); /* rose-700 */
+    --cycling: hsl(244.5 57.9% 50.6%); /* indigo-700 */
+}
+
+.dark {
+    --body: hsl(216.9 19.1% 26.7%); /* gray-700 */
+    --default: hsl(0 0% 96.1%); /* neutral-100 */
+    --default-muted: hsl(217.9 10.6% 64.9%); /* gray-400 */
+    --accent: hsl(20.5 90.2% 48.2%); /* orange-600 */
+    --error: hsl(0 70% 35.3%); /* red-800 */
+
+    --input: hsl(215 13.8% 34.1%); /* gray-600 */
+    --input-border: hsl(220 8.9% 46.1%); /* gray-600 */
+
+
 }
 
 /*
@@ -20,11 +72,11 @@
   color utility to any element that depends on these defaults.
 */
 @layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentcolor);
-  }
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--color-gray-200, currentcolor);
+    }
 }

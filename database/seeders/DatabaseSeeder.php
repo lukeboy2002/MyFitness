@@ -2,7 +2,12 @@
 
 namespace Database\Seeders;
 
+use App\Models\Crosstrainer;
+use App\Models\Cycling;
+use App\Models\Rowing;
+use App\Models\Stairmaster;
 use App\Models\User;
+use App\Models\Walking;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -15,11 +20,29 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        $user = User::updateOrCreate(
+            ['email' => 'antoine@example.com'],
+            ['name' => 'Antoine', 'password' => bcrypt('password')]
+        );
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        $user->crosstrainers()->createMany(
+            Crosstrainer::factory(3)->make()->toArray()
+        );
+
+        $user->cyclings()->createMany(
+            Cycling::factory(3)->make()->toArray()
+        );
+
+        $user->rowings()->createMany(
+            Rowing::factory(3)->make()->toArray()
+        );
+
+        $user->stairmasters()->createMany(
+            Stairmaster::factory(3)->make()->toArray()
+        );
+
+        $user->walkings()->createMany(
+            Walking::factory(3)->make()->toArray()
+        );
     }
 }
